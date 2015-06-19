@@ -19,9 +19,7 @@ class MyTracks(sgmllib.SGMLParser):
     def start_a(self, attributes):
         "Process a hyperlink and its 'attributes'."
         for name, value in attributes:
-            #if name == "href" and re.findall(r'\A/music/.+/_/',value) and not value.endswith("autostart"):
             if name == "href" and re.findall(r'\A/music/.+/_/',value):
-                  #self.hyperlinks.append(value)
                   self.is_a=1
                   if self.m==0 or value!=self.hyperlinks[self.m-1]:
                      self.hyperlinks.append(value)
@@ -80,7 +78,7 @@ class MyFriends(sgmllib.SGMLParser):
         self.is_a=""   
     def handle_data(self, text):   
         if self.is_a:   
-                self.name.append(text) 
+           self.name.append(text) 
 
    
 
@@ -98,7 +96,6 @@ htmlSource0 = re.sub('/user/'+username+'/tracks',username+'_tracks_page1.html',h
 f0 = file(username+'.html', 'w')
 f0.write(htmlSource0)
 f0.close()
-
 
 
 #creat a txt file to store the information of the music
@@ -220,8 +217,6 @@ while t >= t1:
 ftracks.write("The total number of music you selected is: "+str(numtracks))
 ftracks.close()
 
-
-
 #creat a txt file to store the list of friends
 ffriends = file ('friends_list.txt','w')
 ffriends.write('The List of Friends:')
@@ -254,11 +249,7 @@ while k==1 or friends.name!=temp:
     numfriend = numfriend + 1
   print 'k='+str(k) 
   p=1
-# if k==1:
-#   for p in range(1,loop):
-#     #htmlSource = re.sub('/user/'+username+'/friends\?page='+str(k-1),username+'_friends_page'+str(k-1)+'.html',htmlSource,0)
-#     htmlSource = re.sub('/user/'+username+'/friends\?page='+str(k+p),username+'_friends_page'+str(k+p)+'.html',htmlSource,0)
-# else:
+
   for p in range(1,k):
     htmlSource = re.sub('/user/'+username+'/friends\?page='+str(k-p),username+'_friends_page'+str(k-p)+'.html',htmlSource,0)
     htmlSource = re.sub('/user/'+username+'/friends\?page='+str(k+p),username+'_friends_page'+str(k+p)+'.html',htmlSource,0)
@@ -280,7 +271,6 @@ while k==1 or friends.name!=temp:
         sock2.close()
     
         print "save as: " + friends.name[n].lstrip(' ')+'.html'
-        #friends.name[n]=friends.name[n].lstrip(' ')+'.html'
         f2 = file(friends.name[n].lstrip(' ')+'.html', 'w')
         f2.write(html2)
         f2.close()
