@@ -3,4 +3,4 @@ The crawler starts gathering information from the relevant pages that are given 
 
 During the crawling process, the crawler collects metadata about the conferences specified in the relevant pages by exploiting anchor texts and <title> tag of the conference announcement pages. The metadata obtained for each conference is stored in a relational database management system. 
 
-I mainly research the web site www.last.fm, where people can share their music to each other freely and also can make friends by the same interest about music. We set one username=’Bookman1974’. We want to find all web pages of his friends, so we set the other class MyFriends. We also want to know all information of music which he listened to during the period of time, so we set a class MyTracks.
+I mainly research the web site last.fm, where people can share their music to each other freely and also can make friends by the same interest about music. We set one username=’Bookman1974’. We want to find all web pages of his friends, so we set the other class MyFriends. We also want to know all information of music which he listened to during the period of time, so we set a class MyTracks.
